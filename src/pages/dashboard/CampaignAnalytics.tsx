@@ -114,7 +114,7 @@ const CampaignAnalytics: FC = () => {
           <PlayBackSummary data={data.playback_summary} className='mt-8' />
         </div>
         <div className='w-full lg:w-1/3 lg:ml-4 mt-8 lg:mt-0'>
-          <TopLocations data={data.top_location} />
+          <TopLocations data={data?.top_location || []} />
           <ViewsByCity data={data.views_by_city} className='mt-8' />
         </div>
       </div>

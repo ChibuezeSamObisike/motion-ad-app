@@ -76,12 +76,11 @@ const Dashboard: React.FC = () => {
   return (
     <div className='w-full text-black pt-6'>
       <div className='w-full'>
-      
         <div className='flex flex-col lg:flex-row lg:space-x-8'>
           <div className='w-full lg:w-[70%]'>
-          <h5 className='text-[#1A1A1A] text-[16px] mb-4 font-[600]'>
-            Overview
-          </h5>
+            <h5 className='text-[#1A1A1A] text-[16px] mb-4 font-[600]'>
+              Overview
+            </h5>
             <div className='grid grid-cols-1 gap-8 w-full sm:grid-cols-2 lg:grid-cols-3'>
               {DASHBOARD_CARD_DATA.map((data, i) => (
                 <DashboardCard noBorder={i === 2} {...data} key={i} />
@@ -98,7 +97,7 @@ const Dashboard: React.FC = () => {
             {analyticsData.top_locations && (
               <TopLocation
                 className='mt-10 lg:mt-0  h-full'
-                data={analyticsData.top_locations}
+                data={analyticsData?.top_locations || []}
               />
             )}
           </div>
