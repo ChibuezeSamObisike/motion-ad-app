@@ -43,8 +43,8 @@ const TopLocation: FC<TopLocationProps> = ({ className, data }) => {
                 <p className='text-[12px]'>{miles}</p>
                 <p
                   className={cn("text-[11px] ml-2", {
-                    "text-[#4CDA1A]": percentage.includes("+"),
-                    "text-[#B3261E]": percentage.includes("-"),
+                    "text-[#4CDA1A]": percentage?.includes("+"),
+                    "text-[#B3261E]": percentage?.includes("-"),
                   })}
                 >
                   {percentage}
