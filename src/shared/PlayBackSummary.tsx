@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import { FC } from "react";
+import { Box, Typography } from '@mui/material';
+import { FC } from 'react';
 import {
   AreaChart,
   Area,
@@ -8,9 +8,9 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-} from "recharts";
+} from 'recharts';
 
-import emptyAsset from "assets/empty-asset.svg";
+import emptyAsset from 'assets/empty-asset.svg';
 
 interface PlayBackSummaryProps {
   className?: string;
@@ -46,7 +46,7 @@ const PlayBackSummary: FC<PlayBackSummaryProps> = ({ className, data }) => {
           px={4}
           py={2}
         >
-          <img src={emptyAsset} />
+          <img src={emptyAsset} alt='empty-asset' />
           <Typography fontSize='14px'>No active playback summary</Typography>
         </Box>
       )}

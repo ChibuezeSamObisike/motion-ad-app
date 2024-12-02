@@ -49,7 +49,7 @@ const CampaignAnalytics: FC = () => {
         if (id) {
           const reportData = await fetchCampaignReport(id);
           setData(reportData);
-          console.log(reportData);
+          console.log("report data", reportData);
         }
       } catch (error) {
         console.error("Error fetching data: ", error);

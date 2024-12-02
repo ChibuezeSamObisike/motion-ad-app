@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Box,
   Modal,
@@ -7,30 +7,30 @@ import {
   RadioGroup,
   FormControlLabel,
   TextField,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import PrimaryButton from "shared/Buttons";
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import PrimaryButton from 'shared/Buttons';
 
 interface PaymentModalProps {
   onClose: () => void;
 }
 
 const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: "background.paper",
-  border: "0",
+  bgcolor: 'background.paper',
+  border: '0',
   boxShadow: 24,
 };
 
 const PaymentModal: React.FC<PaymentModalProps> = ({ onClose }) => {
-  const [paidWith, setPaidWith] = useState<string>("card");
-  const [cardNumber, setCardNumber] = useState<string>("");
-  const [expDate, setExpDate] = useState<string>("");
-  const [cvv, setCvv] = useState<string>("");
+  const [paidWith, setPaidWith] = useState<string>('card');
+  const [cardNumber, setCardNumber] = useState<string>('');
+  const [expDate, setExpDate] = useState<string>('');
+  const [cvv, setCvv] = useState<string>('');
 
   return (
     <Modal
@@ -44,7 +44,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ onClose }) => {
           <h2 id='modal-title' className='text-xl'>
             Payment Method
           </h2>
-          <Button onClick={onClose} style={{ minWidth: "auto" }}>
+          <Button onClick={onClose} style={{ minWidth: 'auto' }}>
             <CloseIcon />
           </Button>
         </div>
@@ -64,7 +64,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ onClose }) => {
           </RadioGroup>
         </div>
 
-        {paidWith === "card" ? (
+        {paidWith === 'card' ? (
           <div className='mx-auto items-center px-8'>
             <TextField
               label='Card Number'

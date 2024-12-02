@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import AppTable from "shared/AppTable";
-import DashboardCard from "shared/DashboardCard";
-import TopLocation from "shared/TopLocation";
-import DashboardAnalytics from "shared/DashboardAnalytics";
-import { fetchDashboardAnalytics } from "lib/apiService";
-import { DashboardAnalyticsData } from "types/api";
-import AppPieChart from "shared/AppPieChart";
-import { Box } from "@mui/material";
-import { RevolvingDot } from "react-loader-spinner";
+import React, { useEffect, useState } from 'react';
+import AppTable from 'shared/AppTable';
+import DashboardCard from 'shared/DashboardCard';
+import TopLocation from 'shared/TopLocation';
+import DashboardAnalytics from 'shared/DashboardAnalytics';
+import { fetchDashboardAnalytics } from 'lib/apiService';
+import { DashboardAnalyticsData } from 'types/api';
+import AppPieChart from 'shared/AppPieChart';
+import { Box } from '@mui/material';
+import { RevolvingDot } from 'react-loader-spinner';
 
 const Dashboard: React.FC = () => {
   const [analyticsData, setAnalyticsData] =
@@ -20,7 +20,7 @@ const Dashboard: React.FC = () => {
         const data = await fetchDashboardAnalytics();
         setAnalyticsData(data);
       } catch (error) {
-        console.error("Error fetching dashboard analytics:", error);
+        console.error('Error fetching dashboard analytics:', error);
       } finally {
         setLoading(false);
       }
@@ -48,28 +48,28 @@ const Dashboard: React.FC = () => {
 
   const DASHBOARD_CARD_DATA = [
     {
-      title: "Total Views",
+      title: 'Total Views',
       value: analyticsData.total_views.toLocaleString(),
-      percentage: `${analyticsData.views_change > 0 ? "+" : ""}${
+      percentage: `${analyticsData.views_change > 0 ? '+' : ''}${
         analyticsData.views_change
       }%`,
-      when: "This month",
+      when: 'This month',
     },
     {
-      title: "Locations",
+      title: 'Locations',
       value: analyticsData.locations.toLocaleString(),
-      percentage: `${analyticsData.locations_change > 0 ? "+" : ""}${
+      percentage: `${analyticsData.locations_change > 0 ? '+' : ''}${
         analyticsData.locations_change
       }%`,
-      when: "This month",
+      when: 'This month',
     },
     {
-      title: "Ads Spend",
+      title: 'Ads Spend',
       value: `$${(analyticsData.ads_spend / 100).toFixed(2)}`,
-      percentage: `${analyticsData.ads_spend_change > 0 ? "+" : ""}${
+      percentage: `${analyticsData.ads_spend_change > 0 ? '+' : ''}${
         analyticsData.ads_spend_change
       }%`,
-      when: "This month",
+      when: 'This month',
     },
   ];
 
@@ -93,11 +93,11 @@ const Dashboard: React.FC = () => {
             </div>
           </div>
 
-          <div className='w-full   lg:w-[30%]'>
+          <div className='w-full lg:w-[30%]'>
             {analyticsData.top_locations && (
               <TopLocation
                 className='mt-10 lg:mt-0  h-full'
-                data={analyticsData?.top_locations || []}
+                data={analyticsData?.top_locations}
               />
             )}
           </div>
@@ -109,10 +109,10 @@ const Dashboard: React.FC = () => {
               <AppTable
                 title='Campaign Performance'
                 header={[
-                  { label: "Campaign", key: "campaign" },
-                  { label: "Progress", key: "progress" },
-                  { label: "Locations", key: "locations" },
-                  { label: "Status", key: "status" },
+                  { label: 'Campaign', key: 'campaign' },
+                  { label: 'Progress', key: 'progress' },
+                  { label: 'Locations', key: 'locations' },
+                  { label: 'Status', key: 'status' },
                 ]}
                 data={analyticsData.campaign_performance}
               />

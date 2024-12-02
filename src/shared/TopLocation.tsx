@@ -1,21 +1,22 @@
-import { FC } from "react";
-import { cn } from "lib/utils";
+import { FC } from 'react';
+import { cn } from 'lib/utils';
 
-import emptyAsset from "assets/empty-asset.svg";
-import { Box, Typography } from "@mui/material";
+import emptyAsset from 'assets/empty-asset.svg';
+import { Box, Typography } from '@mui/material';
 
-interface TopLocation {
-  cities: string;
-  miles: string;
+interface ITopLocation {
+  city: string;
+  miles_covered: string;
   percentage: string;
 }
 
 interface TopLocationProps {
   className?: string;
-  data: TopLocation[];
+  data: any;
 }
 
 const TopLocation: FC<TopLocationProps> = ({ className, data }) => {
+  console.log('Top locations', data);
   return (
     <div className={` ${className}`}>
       <h5 className='text-[#1A1A1A] text-[16px] mb-4 font-[500]'>
@@ -23,8 +24,8 @@ const TopLocation: FC<TopLocationProps> = ({ className, data }) => {
       </h5>
       <div
         style={{
-          border: "1px solid #D8D8D8",
-          borderRadius: "2px",
+          border: '1px solid #D8D8D8',
+          borderRadius: '2px',
           height: 480,
         }}
       >
@@ -33,30 +34,32 @@ const TopLocation: FC<TopLocationProps> = ({ className, data }) => {
           <h5 className='text-[#959595] w-[50%] text-[13px]'>Miles Covered</h5>
         </div>
         {data?.length !== 0 &&
-          data.map(({ cities, miles, percentage }, i, arr) => (
-            <div
-              className='flex items-center w-full justify-between my-3 py-2 px-4'
-              key={i}
-            >
-              <div className='w-[50%] text-[12px]'>{cities}</div>
-              <div className='flex items-center w-[50%]'>
-                <p className='text-[12px]'>{miles}</p>
-                <p
-                  className={cn("text-[11px] ml-2", {
-                    "text-[#4CDA1A]": percentage?.includes("+"),
-                    "text-[#B3261E]": percentage?.includes("-"),
-                  })}
-                >
-                  {percentage}
-                </p>
-              </div>
-              {arr.length - 1 !== i && (
-                <div className='w-[90%] mx-auto'>
-                  <hr />
+          data?.map(
+            ({ city, miles_covered, percentage }: any, i: any, arr: any) => (
+              <div
+                className='flex items-center w-full justify-between my-3 py-2 px-4'
+                key={i}
+              >
+                <div className='w-[50%] text-[12px]'>{city}</div>
+                <div className='flex items-center w-[50%]'>
+                  <p className='text-[12px]'>{miles_covered}</p>
+                  <p
+                    className={cn('text-[11px] ml-2', {
+                      'text-[#4CDA1A]': percentage?.includes('+'),
+                      'text-[#B3261E]': percentage?.includes('-'),
+                    })}
+                  >
+                    {percentage}
+                  </p>
                 </div>
-              )}
-            </div>
-          ))}
+                {arr.length - 1 !== i && (
+                  <div className='w-[90%] mx-auto'>
+                    <hr />
+                  </div>
+                )}
+              </div>
+            )
+          )}
 
         {data?.length === 0 && (
           <Box
@@ -68,7 +71,7 @@ const TopLocation: FC<TopLocationProps> = ({ className, data }) => {
             px={4}
             py={2}
           >
-            <img src={emptyAsset} />
+            <img src={emptyAsset} alt='empty-asset' />
             <Typography fontSize='14px'>No locations to view</Typography>
           </Box>
         )}
