@@ -11,6 +11,7 @@ import { OutlineButton, PrimaryButton } from "./Buttons";
 import { fetchPlans } from "lib/apiService";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CampaignPlan from "pages/dashboard/CampaignPlan";
 
 interface Plan {
   id: string;
@@ -68,15 +69,15 @@ const PlansData: React.FC = () => {
   return (
     <>
       <ToastContainer />
-      <h4 className='text-[22px] mt-8 font-[400] text-[#1A1A1A]'>
+      {/* <h4 className='text-[22px] mt-8 font-[400] text-[#1A1A1A]'>
         Choose a Pricing Plan
       </h4>
       <p className='text-[16px] font-[400] mt-2 text-[#00000] opacity-50'>
         Thousands company like yours are manage their project and team in easy
         way
-      </p>
-
-      <div className='flex items-center justify-between my-8 w-full flex-col md:flex-row'>
+      </p> */}
+      <CampaignPlan />
+      {/* <div className='flex items-center justify-between my-8 w-full flex-col md:flex-row'>
         <h5 className='md:mr-4 mb-4 md:mb-0 w-full'>
           Preferred Campaign Location
         </h5>
@@ -94,9 +95,9 @@ const PlansData: React.FC = () => {
             ))}
           </MuiSelect>
         </FormControl>
-      </div>
+      </div> */}
 
-      {loading ? (
+      {/* {loading ? (
         <div className='flex justify-center mt-4'>
           <CircularProgress />
         </div>
@@ -128,9 +129,8 @@ const PlansData: React.FC = () => {
               {plan.sub_plan.map((subPlan) => (
                 <div
                   key={subPlan.id}
-                  className={`w-full py-5 flex flex-col items-center ${
-                    subPlan.duration === "monthly" ? "bg-pink-100" : "bg-white"
-                  }`}
+                  className={`w-full py-5 flex flex-col items-center ${subPlan.duration === "monthly" ? "bg-pink-100" : "bg-white"
+                    }`}
                 >
                   <h3 className='mb-6 text-xl capitalize'>
                     {subPlan.duration}
@@ -141,11 +141,10 @@ const PlansData: React.FC = () => {
                   <div className='w-full py-4 flex items-center justify-center'>
                     <OutlineButton
                       onClick={() => handlePlanSelect(subPlan.id)}
-                      className={`shadow-sm w-full px-8 ${
-                        selectedPlanId === subPlan.id
-                          ? "bg-blue-500 text-white "
-                          : ""
-                      }`}
+                      className={`shadow-sm w-full px-8 ${selectedPlanId === subPlan.id
+                        ? "bg-blue-500 text-white "
+                        : ""
+                        }`}
                     >
                       {selectedPlanId === subPlan.id ? "Selected" : "Select"}
                     </OutlineButton>
@@ -155,7 +154,7 @@ const PlansData: React.FC = () => {
             </div>
           ))}
         </div>
-      )}
+      )} */}
 
       {selectedPlanId && (
         <div className='mt-4 flex justify-end'>
@@ -169,3 +168,4 @@ const PlansData: React.FC = () => {
 };
 
 export default PlansData;
+

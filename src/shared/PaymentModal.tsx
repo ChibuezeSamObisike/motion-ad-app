@@ -7,6 +7,8 @@ import {
   RadioGroup,
   FormControlLabel,
   TextField,
+  Typography,
+  Checkbox,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import PrimaryButton from 'shared/Buttons';
@@ -89,6 +91,10 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ onClose }) => {
                 variant='outlined'
               />
             </div>
+            <Typography sx={{ display: 'flex', alignItems: 'center', mt: 4 }}>
+              <Checkbox sx={{ pl: 0 }} />
+              <span style={{ color: '#ACACAC', fontSize: '16px' }}>Save card details</span>
+            </Typography>
           </div>
         ) : (
           <div className='mx-auto items-center p-8'>
@@ -113,7 +119,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ onClose }) => {
           </div>
         )}
 
-        <div className='mx-auto items-center p-8'>
+        <div className='mx-16 items-center p-8'>
           <PrimaryButton className='px-4 mt-3'>Confirm</PrimaryButton>
           <button className='text-[#006E88] rounded-full border border-gray-500 w-full px-4 py-2 mt-3'>
             Add new card

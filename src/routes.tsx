@@ -25,6 +25,7 @@ const Notifications = lazy(() => import('pages/dashboard/Notifications'));
 const Plans = lazy(() => import('pages/dashboard/Plans'));
 const Profile = lazy(() => import('pages/dashboard/Profile'));
 const CampaignPreview = lazy(() => import('pages/dashboard/CampaignPreview'));
+const ChooseSchedule = lazy(() => import('pages/dashboard/ChooseSchedule'));
 
 const AppRoutes = () => {
   const dashboardRoutes = [
@@ -38,6 +39,7 @@ const AppRoutes = () => {
     { path: 'campaign/plan', element: <Plans /> },
     { path: 'campaigns/new', element: <NewCampaign />, title: 'New Campaign' },
     { path: 'campaigns/preview', element: <CampaignPreview /> },
+    { path: 'campaigns/schedule', element: <ChooseSchedule /> },
     { path: 'profile', element: <Profile /> },
     { path: 'notifications', element: <Notifications /> },
     { path: 'logout', element: <Logout /> },
